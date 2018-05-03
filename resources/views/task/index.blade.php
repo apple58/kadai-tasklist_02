@@ -4,6 +4,10 @@
 
     <h1>タスク一覧</h1>
 
+    <?php $statuses = ['Todo', 'Done']; ?>
+
+    <p>{{ $statuses[$task->status] }}</p>
+    
     @if (count($tasks) > 0)
         <ul>
             @foreach ($tasks as $task)

@@ -3,6 +3,10 @@
 @section('content')
 
     <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
+    
+    <?php $statuses = ['Todo', 'Done']; ?>
+
+    <p>{{ $statuses[$task->status] }}</p>
 
     <p>{{ $task->content }}</p>
 
