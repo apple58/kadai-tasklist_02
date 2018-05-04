@@ -4,7 +4,7 @@
 
     <h1>id = {{ $task->id }} のタスク詳細ページ</h1>
     
-    <?php $statuses = ['Todo', 'Done']; ?>
+<?php $statuses = ['Todo', 'Done']; ?>
 
     <p>{{ $statuses[$task->status] }}</p>
 
