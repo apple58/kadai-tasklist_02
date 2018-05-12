@@ -17,7 +17,7 @@
                 <li><a href="#">Tasks</a></li>
             </ul>
             @if (count($tasks) > 0)
-                @include('tasks.tasks', ['tasks' => $tasks])
+                @include('task.tasks', ['tasks' => $tasks])
             @endif
         </div>
     </div>
