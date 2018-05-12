@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <th>ステイタス</th>
-            <td>{{ $statuses[$task->status] }}</td>
+            <td>{{ ~$task->status ? $statuses[$task->status] : '' }}</td>
         </tr>
         <tr>
             <th>タスク</th>

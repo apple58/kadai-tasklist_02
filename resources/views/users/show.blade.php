@@ -14,10 +14,11 @@
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
-                <li><a href="#">Microposts</a></li>
-                <li><a href="#">Followings</a></li>
-                <li><a href="#">Followers</a></li>
+                <li><a href="#">Tasks</a></li>
             </ul>
+            @if (count($tasks) > 0)
+                @include('tasks.tasks', ['tasks' => $tasks])
+            @endif
         </div>
     </div>
 @endsection

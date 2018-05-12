@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Task;
 
-class TaskController extends Controller
+class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -50,15 +50,24 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+    /**
+        dump('test');
+     */
         $this->validate($request, [
             'status' => 'required|max:10',
             'content' => 'required|max:255',
         ]);
-
+    /**
         $task = new Task;
         $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
+     */
+        
+        $request->user()->tasks()->create([
+            'status' => $request->status,
+            'content' => $request->content,
+        ]);
 
         return redirect('/');
     }
@@ -74,6 +83,7 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         return view('task.show', [
+            'status' => 'required|max:10',
             'task' => $task,
         ]);
     }
@@ -89,6 +99,7 @@ class TaskController extends Controller
         $task = Task::find($id);
 
         return view('task.edit', [
+            'status' => 'required|max:10',
             'task' => $task,
         ]);
     }
@@ -123,7 +134,10 @@ class TaskController extends Controller
     public function destroy($id)
     {
         $task = Task::find($id);
-        $task->delete();
+
+        if (\Auth::user()->id === $task->user_id) {
+            $task->delete();
+        }
 
         return redirect('/');
     }
