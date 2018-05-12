@@ -18,6 +18,7 @@ class UsersController extends Controller
         return view('users.index', [
             'users' => $users,
         ]);
+        return redirect('/');
     }
     
     public function show($id)
@@ -31,7 +32,9 @@ class UsersController extends Controller
         ];
         
         $data += $this->counts($user);
-        
+        /**
         return view('users.show', $data);
+        */
+        return redirect('/');
     }
 }
