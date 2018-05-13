@@ -4,7 +4,7 @@
     @if (Auth::check())
     <h1>id: {{ $task->id }} のタスク詳細ページ</h1>
 
-    @if (count($task) > 0)
+    @if ($task)
     <?php $statuses = ['Todo', 'Done']; ?>
 
     <table class="table table-bordered">
