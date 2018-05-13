@@ -81,13 +81,24 @@ class TasksController extends Controller
     public function show($id)
     {
         $task = Task::find($id);
-
         return view('task.show', [
             'status' => 'required|max:10',
             'task' => $task,
         ]);
-    }
+    /**
+        $task = Task::find($id);
 
+    if (\Auth::user()->id === $task->user_id) {
+        return view('task.show', [
+            'status' => 'required|max:10',
+            'task' => $task,
+            'content' => $content,
+            ]);
+    } else {
+        return redirect('/');
+    }
+    */
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -97,7 +108,6 @@ class TasksController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
-
         return view('task.edit', [
             'status' => 'required|max:10',
             'task' => $task,
