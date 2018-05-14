@@ -4,7 +4,7 @@
     @if (Auth::check())
     <h1>id: {{ $task->id }} のタスク編集ページ</h1>
     
-    @if (count($tasks) > 0)
+    @if ($task)
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             {!! Form::model($task, ['route' => ['tasks.update', $task->id], 'method' => 'put']) !!}

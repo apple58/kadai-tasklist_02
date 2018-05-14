@@ -2,9 +2,9 @@
 
 @section('content')
     @if (Auth::check())
-    <h1>id: {{ $task->id }} のタスク詳細ページ</h1>
 
     @if ($task)
+    <h1>id: {{ $task->id }} のタスク詳細ページ</h1>
     <?php $statuses = ['Todo', 'Done']; ?>
 
     <table class="table table-bordered">
